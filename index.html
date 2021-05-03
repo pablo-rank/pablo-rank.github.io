@@ -2,13 +2,99 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>A2HS demo</title>
+    <link rel="icon" type="image/png" href="./icon/fox-icon.png">
+    <title>service worker</title>
     <link href="style.css" rel="stylesheet">
     <script src="index.js" defer></script>
     <link rel="manifest" href="manifest.webmanifest">
+    <link rel="manifest" href="https://storage.googleapis.com/workbox-cdn/releases/6.1.1/workbox-window.prod.mjs">
   </head>
   <body>
-    <img src="images/fox1.jpg" alt="a fox picture">
+    <img src="images/fox1.jpg" alt="a foxy picture1">
+    <img src="images/fox2.jpg" alt="a foxy picture2">
+    <img src="images/fox3.jpg" alt="a foxy picture3">
+    <img src="images/fox4.jpg" alt="a foxy picture4">
+    <img src="images/fox5.jpg" alt="a foxy picture5">
     <button class="add-button">Add to home screen</button>
+
+
+    <script type="module">
+      // This code sample uses features introduced in Workbox v6.
+      import {Workbox, messageSkipWaiting} from 'https://storage.googleapis.com/workbox-cdn/releases/6.1.5/workbox-window.prod.mjs';
+
+      if ('serviceWorker' in navigator) {
+        const wb = new Workbox('/sw.js');
+        let registration;
+
+        const showSkipWaitingPrompt = (event) => {
+          // `event.wasWaitingBeforeRegister` will be false if this is
+          // the first time the updated service worker is waiting.
+          // When `event.wasWaitingBeforeRegister` is true, a previously
+          // updated service worker is still waiting.
+          // You may want to customize the UI prompt accordingly.
+
+          // Assumes your app has some sort of prompt UI element
+          // that a user can either accept or reject.
+
+          result = window.confirm("message");
+          if (result) {
+            //wb.addEventListener('controlling', (event) => {
+              window.location.reload();
+            //});
+          }
+          else {
+            if (!result) {
+              console.log("ko");
+            }
+          }
+        };
+
+        // Add an event listener to detect when the registered
+        // service worker has installed but is waiting to activate.
+        wb.addEventListener('waiting', showSkipWaitingPrompt);
+
+        wb.register();
+      }
+  </script>
+
+
+
+
+<!--     <script type="module">
+    // This code sample uses features introduced in Workbox v6.
+    import {Workbox, messageSW} from 'https://storage.googleapis.com/workbox-cdn/releases/6.1.1/workbox-window.prod.mjs';
+
+    if ('serviceWorker' in navigator) {
+      const wb = new Workbox('/sw.js');
+
+      const showSkipWaitingPrompt = (event) => {
+        console.log("inside");
+        // `event.wasWaitingBeforeRegister` will be false if this is
+        // the first time the updated service worker is waiting.
+        // When `event.wasWaitingBeforeRegister` is true, a previously
+        // updated service worker is still waiting.
+        // You may want to customize the UI prompt accordingly.
+
+        // Assumes your app has some sort of prompt UI element
+        // that a user can either accept or reject.
+        result = window.confirm("message");
+        if (result) {
+          //wb.addEventListener('controlling', (event) => {
+            window.location.reload();
+          //});
+        }
+        else {
+          if (!result) {
+            console.log("ko");
+          }
+        }
+      };
+
+      // Add an event listener to detect when the registered
+      // service worker has installed but is waiting to activate.
+      wb.addEventListener('waiting', showSkipWaitingPrompt);
+      wb.register();
+     }
+    </script> -->
   </body>
 </html>
