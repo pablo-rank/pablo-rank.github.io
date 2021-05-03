@@ -1,17 +1,17 @@
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/6.1.5/workbox-window.prod.mjs');
 
-const OFFLINE_HTML = './sw/offline.html';
+const OFFLINE_HTML = './offline.html';
 const PRECACHE = [
     { url: OFFLINE_HTML, revision: '70f044fda3e9647a98f084763ae2c32a' },
-    { url: './sw/?ts=10' },
-    { url: './sw/index.html?ts=10' },
-    { url: './sw/index.js?ts=10' },
-    { url: './sw/style.css?ts=10' },
-    { url: './sw/images/fox1.jpg?ts=10' },
-    { url: './sw/images/fox2.jpg?ts=10' },
-    { url: './sw/images/fox3.jpg?ts=10' },
-    { url: './sw/images/fox4.jpg?ts=10' },
-    { url: './sw/images/fox5.jpg?ts=10' },
+    { url: './?ts=10' },
+    { url: './index.html?ts=10' },
+    { url: './index.js?ts=10' },
+    { url: './style.css?ts=10' },
+    { url: './images/fox1.jpg?ts=10' },
+    { url: './images/fox2.jpg?ts=10' },
+    { url: './images/fox3.jpg?ts=10' },
+    { url: './images/fox4.jpg?ts=10' },
+    { url: './images/fox5.jpg?ts=10' },
 ];
 
 /**
