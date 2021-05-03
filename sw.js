@@ -2,7 +2,7 @@ importScripts('https://storage.googleapis.com/workbox-cdn/releases/6.1.5/workbox
 
 const OFFLINE_HTML = './offline.html';
 const PRECACHE = [
-    { url: OFFLINE_HTML, revision: '70f044fda3e9647a98f084763ae2c32a' },
+    { url: OFFLINE_HTML },
     { url: './?ts=10' },
     { url: './index.html?ts=10' },
     { url: './index.js?ts=10' },
