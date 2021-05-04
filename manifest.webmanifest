@@ -1,10 +1,10 @@
 {
-  "name": "pwa name",
-  "short_name": "short",
-  "background_color": "#280036",
-  "description": "this is the description",
+  "name": "pWa--",
+  "short_name": "short--",
+  "background_color": "#2b0a36",
+  "description": "this is the description--",
   "display": "fullscreen",
-  "theme_color": "#1c0030",
+  "theme_color": "#a40e30",
   "lang": "es",
   "start_url": "/?utm_source=pwa",
   "icons": [
