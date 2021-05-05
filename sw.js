@@ -1,4 +1,5 @@
-import {cacheNames} from 'workbox-core';
+import('https://storage.googleapis.com/workbox-cdn/releases/6.1.5/workbox-window.prod.mjs');
+//import {cacheNames} from 'workbox-core';
 
 self.addEventListener('install', (event) => {
   console.log('2- V1 installing…');
