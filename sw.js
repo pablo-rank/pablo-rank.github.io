@@ -4,6 +4,20 @@ addEventListener('message', (event) => {
   }
 });
 
+import {cacheNames} from 'workbox-core';
+
+self.addEventListener('install', (event) => {
+  const urls = [
+    { url: 'images/fox-1.jpg' },
+    { url: 'images/fox-2.jpg' },
+    { url: 'images/fox-3.jpg' },
+    { url: 'images/fox-4.jpg' },
+    { url: 'images/fox-5.jpg' },
+];
+  const cacheName = cacheNames.runtime;
+  event.waitUntil(caches.open(cacheName).then((cache) => cache.addAll(urls)));
+});
+
 // importScripts('https://storage.googleapis.com/workbox-cdn/releases/6.1.5/workbox-window.prod.mjs');
 
 // self.addEventListener('install', (event) => {
