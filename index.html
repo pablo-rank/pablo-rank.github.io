@@ -21,10 +21,11 @@
     import {Workbox, messageSW} from 'https://storage.googleapis.com/workbox-cdn/releases/6.1.5/workbox-window.prod.mjs';
 
     if ('serviceWorker' in navigator) {
-      const workbox = new Workbox('sw.js');
+      const workbox = new Workbox('/sw.js');
       let registration;
 
       const showSkipWaitingPrompt = (event) => {
+        console.log("bb");
         // `event.wasWaitingBeforeRegister` will be false if this is
         // the first time the updated service worker is waiting.
         // When `event.wasWaitingBeforeRegister` is true, a previously

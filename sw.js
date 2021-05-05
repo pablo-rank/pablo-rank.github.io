@@ -1,5 +1,3 @@
-import('https://storage.googleapis.com/workbox-cdn/releases/6.1.5/workbox-window.prod.mjs');
-
 self.addEventListener('install', (event) => {
   console.log('2- V1 installing…');
   const urls = ['horse.svg', 'dog.svg'];
