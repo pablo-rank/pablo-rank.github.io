@@ -6,11 +6,11 @@ addEventListener('message', (event) => {
 
 self.addEventListener('install', (event) => {
   const urls = [
-    { url: 'images/fox-1.jpg' },
-    { url: 'images/fox-2.jpg' },
-    { url: 'images/fox-3.jpg' },
-    { url: 'images/fox-4.jpg' },
-    { url: 'images/fox-5.jpg' },
+    { url: './images/fox-1.jpg' },
+    { url: './images/fox-2.jpg' },
+    { url: './images/fox-3.jpg' },
+    { url: './images/fox-4.jpg' },
+    { url: './images/fox-5.jpg' },
 ];
   const cacheName = cacheNames.runtime;
   event.waitUntil(caches.open(cacheName).then((cache) => cache.addAll(urls)));
