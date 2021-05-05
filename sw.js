@@ -4,8 +4,6 @@ addEventListener('message', (event) => {
   }
 });
 
-import {cacheNames} from 'workbox-core';
-
 self.addEventListener('install', (event) => {
   const urls = [
     { url: 'images/fox-1.jpg' },
