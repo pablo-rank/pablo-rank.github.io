@@ -2,7 +2,7 @@ import {cacheNames} from 'workbox-core';
 
 self.addEventListener('install', (event) => {
   console.log('2- V1 installing…');
-  const urls = [/* ... */];
+  const urls = ['horse.svg', 'dog.svg'];
   const cacheName = cacheNames.runtime;
   event.waitUntil(caches.open(cacheName).then((cache) => cache.addAll(urls)));
 });
