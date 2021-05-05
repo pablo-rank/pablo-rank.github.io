@@ -1,11 +1,20 @@
-self.addEventListener('install', event => {
-  console.log('V1 installing…');
+import {cacheNames} from 'workbox-core';
 
-  // cache a horse SVG
-  event.waitUntil(
-    caches.open('static-v1').then(cache => cache.add('/horse.svg'))
-  );
+self.addEventListener('install', (event) => {
+  console.log('2- V1 installing…');
+  const urls = [/* ... */];
+  const cacheName = cacheNames.runtime;
+  event.waitUntil(caches.open(cacheName).then((cache) => cache.addAll(urls)));
 });
+
+// self.addEventListener('install', event => {
+//   console.log('V1 installing…');
+
+//   // cache a horse SVG
+//   event.waitUntil(
+//     caches.open('static-v1').then(cache => cache.add('/horse.svg'))
+//   );
+// });
 
 self.addEventListener('activate', event => {
   console.log('V1 now ready to handle fetches!');
