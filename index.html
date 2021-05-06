@@ -19,10 +19,10 @@
     <script type="module">
     // This code sample uses features introduced in Workbox v6.
     import {Workbox, messageSW} from 'https://storage.googleapis.com/workbox-cdn/releases/6.1.5/workbox-window.prod.mjs';
-    import {cacheNames} from 'workbox-core';
+
 
     if ('serviceWorker' in navigator) {
-      const workbox = new Workbox('/sw.js');
+      const workbox1 = new Workbox('/sw.js');
       let registration;
 
       const showSkipWaitingPrompt = (event) => {
@@ -57,9 +57,9 @@
 
       // Add an event listener to detect when the registered
       // service worker has installed but is waiting to activate.
-      workbox.addEventListener('waiting', showSkipWaitingPrompt);
+      workbox1.addEventListener('waiting', showSkipWaitingPrompt);
 
-      workbox.register();
+      workbox1.register();
     }
     </script>
   </body>
