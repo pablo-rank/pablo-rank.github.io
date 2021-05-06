@@ -1,11 +1,11 @@
 addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
+    console.log("SKIP_WAITING");
     self.skipWaiting();
   }
 });
 
 console.log("new sw");
-console.log("test");
 
 // importScripts('https://storage.googleapis.com/workbox-cdn/releases/6.1.5/workbox-window.prod.mjs');
 

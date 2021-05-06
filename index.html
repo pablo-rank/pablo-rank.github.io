@@ -29,13 +29,16 @@
       // Add an event listener to detect when the registered
       // service worker has installed but is waiting to activate.
       wb.addEventListener('waiting', (event) => {
-        console.log(`A new service worker has installed, but it can't activate until all tabs running the current version have fully unloaded.`);
+        console.log(`waiting - A new service worker has installed, but it can't activate until all tabs running the current version have fully unloaded.`);
+        if (window.confirm("Do you really want to leave?")) {
+          window.reload();
+        }
       });
       wb.addEventListener('externalwaiting', (event) => {
         if (window.confirm("Do you really want to leave?")) {
           window.reload();
         }
-        console.log(`A new service worker has installed, but it can't activate until all tabs running the current version have fully unloaded.`);
+        console.log(`externalwaiting - A new service worker has installed, but it can't activate until all tabs running the current version have fully unloaded.`);
       });
 
       wb.register();
