@@ -16,6 +16,8 @@
     <img src="images/fox5.jpg" alt="a foxy picture5">
     <button class="add-button">Add to home screen</button>
 
+    <a href="next.html">
+
     <script type="module">
     // This code sample uses features introduced in Workbox v6.
     import {Workbox, messageSW} from 'https://storage.googleapis.com/workbox-cdn/releases/6.1.5/workbox-window.prod.mjs';
@@ -30,6 +32,9 @@
         console.log(`A new service worker has installed, but it can't activate until all tabs running the current version have fully unloaded.`);
       });
       wb.addEventListener('externalwaiting', (event) => {
+        if (window.confirm("Do you really want to leave?")) {
+          window.relaod();
+        }
         console.log(`A new service worker has installed, but it can't activate until all tabs running the current version have fully unloaded.`);
       });
 
