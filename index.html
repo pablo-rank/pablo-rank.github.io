@@ -37,6 +37,14 @@
         reloadPage();
       });
 
+      self.addEventListener('install', event => {
+        self.skipWaiting();
+
+        event.waitUntil(
+          // caching etc
+        );
+      });
+
       wb.addEventListener('installed', (event) => {
         if (event.isUpdate) {
           // Show "Update App" banner
