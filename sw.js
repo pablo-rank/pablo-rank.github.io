@@ -1,6 +1,6 @@
 addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
-    console.log("SKIP_WAITING");
+    console.log("new change SKIP_WAITING");
     self.skipWaiting();
   }
 });
