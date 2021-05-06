@@ -15,7 +15,7 @@
 //     // Show "Update App" banner
 //   }
 // });
-
+console.log("sddsd");
 console.log("new sw");
 
 // importScripts('https://storage.googleapis.com/workbox-cdn/releases/6.1.5/workbox-window.prod.mjs');
