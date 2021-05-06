@@ -31,39 +31,27 @@
       wb.addEventListener('waiting', (event) => {
         console.log(`waiting - A new service worker has installed, but it can't activate until all tabs running the current version have fully unloaded.`);
         if (window.confirm("Do you really want to leave?")) {
-          wb.register();
           location.reload();
         }
       });
       wb.addEventListener('externalwaiting', (event) => {
         console.log(`externalwaiting - A new service worker has installed, but it can't activate until all tabs running the current version have fully unloaded.`);
         if (window.confirm("Do you really want to leave?")) {
-          wb.register();
           location.reload();
-        }
-      });
-
-      self.addEventListener('activate', event => {
-        event.waitUntil(clients.claim());
-      });
-
-      wb.addEventListener('message', (event) => {
-        if (event.data && event.data.type === 'SKIP_WAITING') {
-          console.log("new change  - -  SKIP_WAITING");
-          self.skipWaiting();
         }
       });
 
       wb.addEventListener('installed', (event) => {
         if (event.isUpdate) {
-          console.log("new change  - -  Update app");
+          // Show "Update App" banner
+          console.log(`Update App - A new service worker has installed, but it can't activate until all tabs running the current version have fully unloaded.`);
           if (window.confirm("Do you really want to leave?")) {
-            wb.register();
             location.reload();
           }
-          // Show "Update App" banner
         }
       });
+
+      wb.register();
     }
     </script>
   </body>
