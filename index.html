@@ -22,44 +22,15 @@
 
 
     if ('serviceWorker' in navigator) {
-      const workbox1 = new Workbox('/sw.js');
-      let registration;
-
-      const showSkipWaitingPrompt = (event) => {
-        console.log("bb");
-        // `event.wasWaitingBeforeRegister` will be false if this is
-        // the first time the updated service worker is waiting.
-        // When `event.wasWaitingBeforeRegister` is true, a previously
-        // updated service worker is still waiting.
-        // You may want to customize the UI prompt accordingly.
-
-        // Assumes your app has some sort of prompt UI element
-        // that a user can either accept or reject.
-        // const prompt = createUIPrompt({
-        //   onAccept: () => {
-        //     console.log("onAccept");
-        //     // Assuming the user accepted the update, set up a listener
-        //     // that will reload the page as soon as the previously waiting
-        //     // service worker has taken control.
-        //     workbox.addEventListener('controlling', (event) => {
-        //       window.location.reload();
-        //     });
-
-        //     messageSkipWaiting();
-        //   },
-
-        //   onReject: () => {
-        //     console.log("onReject");
-        //     prompt.dismiss();
-        //   }
-        // });
-      };
+      const wb = new Workbox('/sw.js');
 
       // Add an event listener to detect when the registered
       // service worker has installed but is waiting to activate.
-      workbox1.addEventListener('waiting', showSkipWaitingPrompt);
+      wb.addEventListener('waiting', (event) => {
+        console.log(`A new service worker has installed, but it can't activate until all tabs running the current version have fully unloaded.`);
+      });
 
-      workbox1.register();
+      wb.register();
     }
     </script>
   </body>
