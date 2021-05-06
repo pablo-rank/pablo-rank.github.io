@@ -1,11 +1,11 @@
-wb.addEventListener('message', (event) => {
+addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
     console.log("new change  - -  SKIP_WAITING");
     self.skipWaiting();
   }
 });
 
-wb.addEventListener('installed', (event) => {
+addEventListener('installed', (event) => {
   if (event.isUpdate) {
     console.log("new change  - -  Update app");
     if (window.confirm("Do you really want to leave?")) {
