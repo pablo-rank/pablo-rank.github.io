@@ -8,9 +8,9 @@ addEventListener('message', (event) => {
 self.addEventListener('install', event => {
   self.skipWaiting();
 
-  event.waitUntil(
-    // caching etc
-  );
+  // event.waitUntil(
+  //   // caching etc
+  // );
 });
 
 console.log("new sw");
