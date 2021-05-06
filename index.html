@@ -33,7 +33,7 @@
       });
       wb.addEventListener('externalwaiting', (event) => {
         if (window.confirm("Do you really want to leave?")) {
-          window.relaod();
+          window.reload();
         }
         console.log(`A new service worker has installed, but it can't activate until all tabs running the current version have fully unloaded.`);
       });
